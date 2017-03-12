@@ -30,8 +30,8 @@ const StringNotes = ({ startNote, highlightNote, max, onClickNote }: Type) => {
             data-note={note}
             onClick={onClickNote}
             style={{
-              color: note == highlightNote ? 'white' : 'black',
-              backgroundColor: note == highlightNote ? 'black' : 'white',
+              color: note === highlightNote ? 'white' : 'black',
+              backgroundColor: note === highlightNote ? 'black' : 'white',
               cursor: 'pointer',
             }}
             >

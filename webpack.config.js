@@ -1,10 +1,6 @@
-/* eslint-disable no-var */
 
-var fs = require('fs')
-var path = require('path')
-var webpack = require('webpack')
-var WebpackNotifierPlugin = require('webpack-notifier');
-var path = require('path');
+const webpack = require('webpack')
+const WebpackNotifierPlugin = require('webpack-notifier');
 
 module.exports = {
 
@@ -13,22 +9,21 @@ module.exports = {
   ],
 
   resolve: {
-    root: [
-      path.resolve('./app'),
-    ]
+    modules: [ 'app', 'node_modules' ]
   },
 
   output: {
     path: __dirname + '/public/staticjs/',
-    filename: 'bundle.js',
+    filename: '[name].js',
     publicPath: '/staticjs/'
   },
 
   module: {
     loaders: [
-      { test: /\.js$/, exclude: /node_modules/, loader: 'babel' },
-      { test: /\.css$/, loader: 'style!css' },
-      { test: /\.json$/, loader: 'json' }
+      { test: /\.js$/, exclude: /node_modules/, loader: 'babel-loader' },
+      { test: /\.less$/, loader: "style-loader!css-loader!less-loader" },
+      { test: /\.css$/, loader: 'style-loader!css-loader' },
+      { test: /\.json$/, loader: 'json-loader' }
     ]
   },
 

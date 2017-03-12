@@ -56,7 +56,7 @@ export class App extends React.Component {
             return (
               <span key={name}
                 style={{
-                  color: name == this.state.tuning ? 'red' : 'black',
+                  color: name === this.state.tuning ? 'red' : 'black',
                   padding: '0 10px 0 0',
                   cursor: 'pointer',
                 }}
